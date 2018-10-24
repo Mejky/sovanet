@@ -15,17 +15,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api'], function($router)
-{
     //Author
-
+    
     $router->post('create-author','AuthorController@createAuthor');
 
     $router->put('update-author','AuthorController@updateAuthor');
 
     $router->delete('delete-author/{id}','AuthorController@deleteAuthor');
 
-    $router->get('author','AuthorController@index');
+    $router->get('authors','AuthorController@index');
 
     $router->get('author/{id}','AuthorController@showAuthor');
 
@@ -40,4 +38,4 @@ $router->group(['prefix' => 'api'], function($router)
     $router->get('books','BookController@index');
 
     $router->get('book/{id}','BookController@showBook');
-});
+
