@@ -77,9 +77,19 @@ class BookController extends Controller{
     public function showBook($id)
     {
         $book  = Book::find($id);
+
+        if ($book == NULL) {
+
+            return response()->json(['error' => 'Bad request'], 400);
+
+
+        } else {
+
         $book->author = Author::find($book->author);
 
         return response()->json($book);
+
+        }
     }
 
     public function index(){
